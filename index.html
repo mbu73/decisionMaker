@@ -39,7 +39,7 @@
     </div>
    
     <div id="row_answer">
-        <p> eee </p>
+        <p> fff </p>
     </div>
     
     <br>
@@ -62,8 +62,14 @@
         function onThird(event) {
             document.getElementById("hidden_label").removeAttribute("hidden");
             console.log(event.target.id);
+
+            if (event.target.nodeName === "document_audience") {
+                document.getElementById("document_format_label").setAttribute("hidden", "hidden");
+            } else {
+                document.getElementById("document_type_label").setAttribute("hidden", "hidden");
+            }
             
-            if (event.target.id == "document_audience") {
+            if (event.target.id === "document_audience") {
                 document.getElementById("document_type_label").innerText = "True";
                 document.getElementById("row_answer").setAttribute("hidden", "hidden");
             } else {
