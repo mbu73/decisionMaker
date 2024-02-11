@@ -18,8 +18,24 @@
 
 
     <label for="Document Type">Select document type</label>
+    <select name="document_types" id="document_types" onchange="onSelect">
+            <option> value="Text"</option>
+            <option> value="Image"</option>
+            <option> value="Audio"</option>
+            <option> value="Video"</option>
+    </select>
 
+
+
+
+    <script>
+        function onSelect() {
+            document.getElementById("dropdown").classList.toggle("show");
+            
+            document.getElementById("document_types").style.display = 'none';
+        }
+        
+    </script>
 </body>
-
 
 </html>
