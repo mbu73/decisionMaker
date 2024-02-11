@@ -17,7 +17,7 @@
     <br>
 
     <label hidden id="document_format_label">Select document format</label>
-    <select hidden name="document_format" id="document_format" onchange="onClick()">
+    <select name="document_format" id="document_format" onchange="onClick()">
             <option value="text">Text</option>
             <option value="image">Image</option>
             <option value="audio">Audio</option>
@@ -50,12 +50,14 @@
             let hidden = document.getElementById("row_answer").getAttribute("hidden");
             if (hidden) {
                 document.getElementById("row_answer").removeAttribute("hidden"); 
+                document.getElementById("row_answer").innerText = "True";
             } else {
                 document.getElementById("row_answer").setAttribute("hidden");
+                document.getElementById("row_answer").innerText = "False";
             }
             document.getElementById("document_type_label").setAttribute("hidden");
-
-            document.getElementById("hidden_label").innerText = "You can see me!";
+            document.getElementById("document_format_label").setAttribute("hidden");
+           
         }
         
     </script>
