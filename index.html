@@ -4,7 +4,7 @@
 
     <div class="dropdown"></div>
 
-    <h2 border="1"> Document Location Finder </h2>
+    <h2 border-style:dotted> Document Location Finder </h2>
 
     <label id="document_type_label">Select document type</label>
     <select name="document_type" id="document_type" onchange="onChange()">
@@ -59,13 +59,13 @@
         }
 
         function onThird(event) {
+            document.getElementById("hidden_label").removeAttribute("hidden");
+
             if (event.target.matches("document_audience")) {
                 document.getElementById("document_type_label").innerText = "True";
             } else {
                 document.getElementById("document_type_label").innerText = "False";
             }
-        
-            document.getElementById("hidden_label").removeAttribute("hidden");
         }
         
         /* toggle visibility of the object */
