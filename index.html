@@ -12,9 +12,7 @@
             <option value="video">Guidelines</option>
     </select>
 
-    <br>
-
-    <br>
+    <br> <br>
 
     <label hidden id="document_format_label">Select document format</label>
     <select hidden name="document_format" id="document_format" onchange="onClick()">
@@ -24,11 +22,17 @@
             <option value="video">Video</option>
     </select>
 
-
-    <br>
+    <br> <br>
+    <label hidden id="document_audience_label">Select document audience</label>
+    <select hidden name="document_audience" id="document_audience" onchange="onClick()">
+            <option value="eng">ENG</option>
+            <option value="prod">PROD</option>
+            <option value="adsk">ADSK/GTEK</option>
+            <option value="vendor">Vendor</option>
+    </select>
 
     <div id="row_answer">
-        <p> Blah </p>
+        <p> Row_Answer </p>
     </div>
     
     <br>
@@ -36,17 +40,28 @@
     <label hidden id="hidden_label"> I was hidden</label>
 
     <script>
+        /* connects to onchange */
         function onChange() {
-            /* Once way to show an object */
-            document.getElementById("hidden_label").removeAttribute("hidden");
-            
             document.getElementById("document_format_label").removeAttribute("hidden");
-
             document.getElementById("document_format").removeAttribute("hidden");
         }
 
         /* connects to onclick="onClick()" */
         function onClick() {
+            document.getElementById("document_type_label").setAttribute("hidden", "hidden");
+            document.getElementById("document_format_label").setAttribute("hidden", "hidden");
+        }
+
+        function onThird(event) {
+            if (event.target.matches("document_audience")) {
+                document.getElementById("row_answer").setAttribute("hidden", "hidden");
+            } else {
+                document.getElementById("row_answer").removeAttribute("hidden");
+            }
+        }
+        
+        /* toggle visibility of the object */
+        function ShowHide() {
             let hidden = document.getElementById("row_answer").getAttribute("hidden");
             if (hidden) {
                 document.getElementById("row_answer").removeAttribute("hidden"); 
@@ -57,9 +72,6 @@
 
                 document.getElementById("hidden_label").innerText = "False";
             }
-            document.getElementById("document_type_label").setAttribute("hidden", "hidden");
-            document.getElementById("document_format_label").setAttribute("hidden", "hidden");
-           
         }
         
     </script>
