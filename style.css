@@ -1,7 +1,3 @@
-select {
-    width: 200px;
-}
-
 /* Create and Style a div with a class name "dropdown" */
 .dropdown { 
     display: inline-block; 
