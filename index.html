@@ -8,7 +8,7 @@
     <h2> Document Location Finder </h2>
 
     <label for="dog-names">Choose a dog name:</label> 
-    <select name="dog-names" id="dog-names"> 
+    <select name="dog-names" id="dog-names" onclick="onClick()" class="dropdown"> 
         <option value="rigatoni">Rigatoni</option> 
         <option value="dave">Dave</option> 
         <option value="pumpernickel">Pumpernickel</option> 
@@ -20,7 +20,7 @@
     <br>
 
     <label for="Document Type">Select document type</label>
-    <select name="document_types" id="document_types" onchange="onSelect">
+    <select name="document_types" id="document_types" onchange="onSelect" class="dropdown">
             <option value="text">Text</option>
             <option value="image">Image</option>
             <option value="audio">Audio</option>
@@ -34,8 +34,12 @@
         function onSelect() {
             document.getElementById("dropdown").classList.toggle("show");
             
-            document.getElementById("document_types").style.display = 'none';
         }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('dropdown')) {
+                document.getElementById("document_types").className = 'hidden';
+            }
         
     </script>
 </body>
