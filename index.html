@@ -8,7 +8,7 @@
 
 
     <label id="document_type_label">Document Type</label>
-    <select name="document_type" id="document_type" onchange="onChange()">
+    <select name="document_type" id="document_type" onchange="onChange(event)">
             <option value="text">How To</option>
             <option value="image">Presentation</option>
             <option value="audio">Diagram</option>
@@ -18,7 +18,7 @@
     <br> <br>
 
     <label hidden id="document_format_label">Document Format</label>
-    <select hidden name="document_format" id="document_format" onchange="onClick()">
+    <select hidden name="document_format" id="document_format" onchange="onChange(event)">
             <option value="text">Text</option>
             <option value="image">Image</option>
             <option value="audio">Audio</option>
@@ -29,7 +29,7 @@
 
     <div class="dropdown">
         <label hidden id="document_audience_label">Document Audience</label>
-        <select hidden name="document_audience" id="document_audience" onchange="onThird(event)">
+        <select hidden name="document_audience" id="document_audience" onchange="onChange(event)">
             <option value="eng">ENG</option>
             <option value="prod">PROD</option>
             <option value="adsk">ADSK/GTEK</option>
@@ -38,46 +38,37 @@
         
     </div>
    
-    <div id="row_answer">
-        <p> hhhh </p>
+    <br>
+    <p>blah</p>
+    <br>
+    <div hidden id="div_answer">
+        <p> Answer: this is where it goes </p>
     </div>
     
-    <br>
-
-    <label hidden id="hidden_label"> I was hidden</label>
-
+    
     <script>
         /* connects to onchange */
         function onChange() {
-            document.getElementById("document_format_label").removeAttribute("hidden");
-            document.getElementById("document_format").removeAttribute("hidden");
+            if (event.target.id === "document_type") {
+                document.getElementById("document_format_label").removeAttribute("hidden");
+                document.getElementById("document_format").removeAttribute("hidden");
+            }
+
+            if (event.target.id === "document_format") {
+                document.getElementById("document_audience_label").removeAttribute("hidden");
+                document.getElementById("document_audience").removeAttribute("hidden");
+            }
+            
+            if (event.target.id === "document_audience") {
+                document.getElementById("div_answer").removeAttribute("hidden");
+            }
         }
 
         /* connects to onclick="onClick()" */
         function onClick() {
-            document.getElementById("document_audience_label").removeAttribute("hidden");
-            document.getElementById("document_audience").removeAttribute("hidden");
-        }
-
-        function onThird(event) {
-            document.getElementById("hidden_label").removeAttribute("hidden");
-            console.log(event);
-            console.log(event.target);
-
-            if (event.target.nodeName === "document_audience") {
-                document.getElementById("document_format_label").setAttribute("hidden", "hidden");
-            } else {
-                document.getElementById("document_type_label").setAttribute("hidden", "hidden");
-            }
             
-            if (event.target.id === "document_audience") {
-                document.getElementById("document_type_label").innerText = "True";
-                document.getElementById("row_answer").setAttribute("hidden", "hidden");
-            } else {
-                document.getElementById("document_type_label").innerText = "False";
-                document.getElementById("document_format_label").setAttribute("hidden", "hidden");
-            }
         }
+
         
         /* toggle visibility of the object */
         function ShowHide() {
