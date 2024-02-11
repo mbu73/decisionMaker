@@ -19,8 +19,8 @@
 
     <br>
 
-    <label id="document_format_label" hidden>Select document format</label>
-    <select name="document_format" id="document_format" onchange="onClick()">
+    <label hidden id="document_format_label">Select document format</label>
+    <select hidden name="document_format" id="document_format" onchange="onClick()">
             <option value="text">Text</option>
             <option value="image">Image</option>
             <option value="audio">Audio</option>
@@ -42,15 +42,18 @@
     <script>
         function onChange() {
             /* Once way to show an object */
-            document.getElementById("row_answer").setAttribute("hidden");
+            document.getElementById("hidden_label").removeAttribute("hidden");
 
             document.getElementById("document_format_label").removeAttribute("hidden");
         }
 
         /* connects to onclick="onClick()" */
         function onClick() {
-            document.getElementById("row_answer").style.display="block";
-            document.getElementById("hidden_label").style.display="";
+            document.getElementById("hidden_label").className = 'hidden'; 
+
+            document.getElementById("document_format_label").className = '';
+
+            document.getElementById("document_format").className = 'hidden';
         }
         
     </script>
