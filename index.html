@@ -48,7 +48,8 @@
     
     <script>
         /* connects to onchange */
-        function onChange() {
+        function onChange(event) {
+            console.log(event);
             if (event.target.id === "document_type") {
                 document.getElementById("document_format_label").removeAttribute("hidden");
                 document.getElementById("document_format").removeAttribute("hidden");
@@ -65,7 +66,7 @@
         }
 
         /* connects to onclick="onClick()" */
-        function onClick() {
+        function onClick(event) {
             
         }
 
