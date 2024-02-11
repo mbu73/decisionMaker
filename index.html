@@ -38,7 +38,7 @@
     </div>
    
     <div id="row_answer">
-        <p> aaaaa </p>
+        <p> bbbb </p>
     </div>
     
     <br>
@@ -63,8 +63,10 @@
 
             if (event.target.matches("document_audience")) {
                 document.getElementById("document_type_label").innerText = "True";
+                document.getElementById("row_answer").setAttribute("hidden", "hidden");
             } else {
                 document.getElementById("document_type_label").innerText = "False";
+                document.getElementById("document_format_label").setAttribute("hidden", "hidden");
             }
         }
         
