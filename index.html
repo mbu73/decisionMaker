@@ -24,7 +24,7 @@
 
     <br> <br>
     <label hidden id="document_audience_label">Select document audience</label>
-    <select hidden name="document_audience" id="document_audience" onchange="onClick()">
+    <select hidden name="document_audience" id="document_audience" onchange="onThird()">
             <option value="eng">ENG</option>
             <option value="prod">PROD</option>
             <option value="adsk">ADSK/GTEK</option>
@@ -48,8 +48,8 @@
 
         /* connects to onclick="onClick()" */
         function onClick() {
-            document.getElementById("document_type_label").setAttribute("hidden", "hidden");
-            document.getElementById("document_format_label").setAttribute("hidden", "hidden");
+            document.getElementById("document_faudience_label").removeAttribute("hidden");
+            document.getElementById("document_audience").removeAttribute("hidden");
         }
 
         function onThird(event) {
