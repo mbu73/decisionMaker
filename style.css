@@ -1,3 +1,11 @@
+/* Control object visibility */
+.hidden{
+    visibility:hidden;
+}
+
+
+
+
 /* Create and Style a div with a class name "dropdown" */
 .dropdown { 
     display: inline-block; 
