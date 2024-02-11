@@ -7,20 +7,20 @@
 
     <h2> Document Location Finder </h2>
 
-    <label for="dog-names">Choose a dog name:</label> 
-    <select name="dog-names" id="dog-names" onclick="onClick()" class="dropdown"> 
-        <option value="rigatoni">Rigatoni</option> 
-        <option value="dave">Dave</option> 
-        <option value="pumpernickel">Pumpernickel</option> 
-        <option value="reeses">Reeses</option> 
+    <label for="Document Type">Select document type</label>
+    <select name="document_format" id="document_format" onchange="onChange()">
+            <option value="text">Text</option>
+            <option value="image">Image</option>
+            <option value="audio">Audio</option>
+            <option value="video">Video</option>
     </select>
-  
+
     <br>
 
     <br>
 
     <label for="Document Type">Select document type</label>
-    <select name="document_types" id="document_types" onchange="onSelect()" class="dropdown">
+    <select name="document_types" id="document_types" onclick="onClick()">
             <option value="text">Text</option>
             <option value="image">Image</option>
             <option value="audio">Audio</option>
@@ -34,18 +34,22 @@
         <p> You should store your file over there </p>
     </div>
     
+    <br>
 
+    <label hidden id="hidden_label"> I was hidden</label>
+
+    
     <script>
-        function onSelect() {
-            document.getElementById("dropdown").classList.toggle("show");
+        function onChange() {
             document.getElementById("row_answer").style.display="block";
+
+            document.getElementById("hidden_label").style.display="block";
         }
 
-        window.onClick = function(event) {
-            if (!event.target.matches('dropdown')) {
-                document.getElementById("row_answer").className = 'hidden';
-                document.getElementById("row_answer").style.display="block";
-            }
+        function onClick() {
+            document.getElementById("row_answer").style.display="block";
+            document.getElementById("hidden_label").style.display="block";
+        }
         
     </script>
 </body>
