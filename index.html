@@ -2,9 +2,6 @@
 <html>
 <body>
 
-    <div class="dropdown"></div>
-
-
     <h2> Document Location Finder </h2>
 
     <label id="document_type_label">Select document type</label>
@@ -41,22 +38,24 @@
     <script>
         function onChange() {
             /* Once way to show an object */
-            document.getElementById("hidden_label").className = '';
+            document.getElementById("hidden_label").removeAttribute("hidden");
             
             document.getElementById("document_format_label").removeAttribute("hidden");
 
-            document.getElementById("document_format").removeAttribute('hidden');
+            document.getElementById("document_format").removeAttribute("hidden");
         }
 
         /* connects to onclick="onClick()" */
         function onClick() {
-            document.getElementById("row_answer").setAttribute('hidden'); 
+            let hidden = document.getElementById("row_answer").getAttribute("hidden");
+            if (hidden) {
+                document.getElementById("row_answer").removeAttribute("hidden"); 
+            } else {
+                document.getElementById("row_answer").setAttribute("hidden");
+            }
+            document.getElementById("document_type_label").setAttribute("hidden");
 
-            document.getElementById("hidden_label").className = 'hidden'; 
-
-            document.getElementById("document_type_label").setAttribute('hidden');
-
-            
+            document.getElementById("hidden_label").innerText = "You can see me!";
         }
         
     </script>
