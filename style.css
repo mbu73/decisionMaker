@@ -1,1 +1,27 @@
+/* Create and Style a div with a class name "dropdown" */
+.dropdown { 
+    display: inline-block; 
+    position: relative; 
+  } 
 
+/*  Create and stle the dropdown content. */
+.dropdown-content {
+      display: none;
+      position: absolute;
+      width: 100%;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+
+/* Set the dropdown menu's hover state. */
+.dropdown:hover .dropdown-content {
+      display: block;
+  }
+
+/* Style the links inside the dropdown menu. */
+.dropdown-content a {
+      display: block;
+      color: #000000;
+      padding: 5px;
+      text-decoration: none;
+  }
