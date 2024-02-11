@@ -7,8 +7,8 @@
 
     <h2> Document Location Finder </h2>
 
-    <label for="Document Type">Select document type</label>
-    <select name="document_format" id="document_format" onchange="onChange()">
+    <label id="document_type_label">Select document type</label>
+    <select name="document_type" id="document_type" onchange="onChange()">
             <option value="text">Text</option>
             <option value="image">Image</option>
             <option value="audio">Audio</option>
@@ -19,8 +19,8 @@
 
     <br>
 
-    <label for="Document Type">Select document type</label>
-    <select name="document_types" id="document_types" onclick="onClick()">
+    <label id="document_format_label" hidden>Select document format</label>
+    <select name="document_format" id="document_format" onchange="onClick()">
             <option value="text">Text</option>
             <option value="image">Image</option>
             <option value="audio">Audio</option>
@@ -31,7 +31,7 @@
     <br>
 
     <div id="row_answer">
-        <p> Answer: You should store your file over there </p>
+        <p> TADA!!!! </p>
     </div>
     
     <br>
@@ -41,14 +41,16 @@
     
     <script>
         function onChange() {
-            document.getElementById("row_answer").style.display="block";
+            /* Once way to show an object */
+            document.getElementById("row_answer").setAttribute("hidden");
 
-            document.getElementById("hidden_label").style.display="block";
+            document.getElementById("document_format_label").removeAttribute("hidden");
         }
 
+        /* connects to onclick="onClick()" */
         function onClick() {
             document.getElementById("row_answer").style.display="block";
-            document.getElementById("hidden_label").style.display="block";
+            document.getElementById("hidden_label").style.display="";
         }
         
     </script>
