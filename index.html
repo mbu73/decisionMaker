@@ -39,7 +39,7 @@
     </div>
    
     <div id="row_answer">
-        <p> fff </p>
+        <p> gggggg </p>
     </div>
     
     <br>
@@ -61,7 +61,8 @@
 
         function onThird(event) {
             document.getElementById("hidden_label").removeAttribute("hidden");
-            console.log(event.target.id);
+            console.log(event);
+            console.log(event.target);
 
             if (event.target.nodeName === "document_audience") {
                 document.getElementById("document_format_label").setAttribute("hidden", "hidden");
